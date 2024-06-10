@@ -1,4 +1,10 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
+@tailwind components;
+@tailwind utilities;
+
+body {
+  box-sizing: border-box;
+}
+.herocard {
+  background: linear-gradient(90deg, #4d1d28, #1f1f1f 37.35%);
+}
