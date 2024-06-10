@@ -21,74 +21,77 @@ const MainLayout = ({
   const pathname = usePathname();
   return (
     <>
-      <header
-        className="bg-nav-bg relative"
-        style={{
-          borderBottom: "1px solid #363636",
-        }}
-      >
-        <nav className="w-11/12 mx-auto py-3">
-          <section className="flex items-center justify-between">
-            <div className="flex items-center gap-16">
-              <div className="flex items-center gap-4">
-                <div onClick={() => setToggleMenu((prev) => !prev)}>
-                  <MenuIcon className=" text-white w-8 h-8 cursor-pointer" />
+      <header className="relative">
+        <div
+          className="bg-nav-bg fixed"
+          style={{
+            borderBottom: "1px solid #363636",
+            width: "100vw",
+            zIndex: 9999999,
+          }}
+        >
+          <nav className="w-11/12 mx-auto py-3">
+            <section className="flex items-center justify-between">
+              <div className="flex items-center gap-16">
+                <div className="flex items-center gap-4">
+                  <div onClick={() => setToggleMenu((prev) => !prev)}>
+                    <MenuIcon className=" text-white w-8 h-8 cursor-pointer" />
+                  </div>
+                  <Link href={"/"}>
+                    <Image
+                      src={"/images/candylogo.svg"}
+                      width={115}
+                      height={30}
+                      className="cursor-pointer"
+                      alt="logo"
+                    />
+                  </Link>
                 </div>
-                <Link href={"/"}>
-                  <Image
-                    src={"/images/candylogo.svg"}
-                    width={115}
-                    height={30}
-                    className="cursor-pointer"
-                    alt="logo"
-                  />
-                </Link>
+                <div className="flex items-center gap-4">
+                  <div className="relative cursor-pointer">
+                    <GenderComponent
+                      urlto="/"
+                      url={
+                        pathname === "/"
+                          ? "/images/femaleA.svg"
+                          : "/images/female.svg"
+                      }
+                      text={"Female"}
+                      active={pathname === "/" ? true : false}
+                    />
+                  </div>
+                  <div className="relative cursor-pointer">
+                    <GenderComponent
+                      urlto="/ai-boyfriend"
+                      url={
+                        pathname === "/ai-boyfriend"
+                          ? "/images/male.svg"
+                          : "/images/maleIn.svg"
+                      }
+                      text={"Male"}
+                      active={pathname === "/ai-boyfriend" ? true : false}
+                    />
+                  </div>
+                </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="relative cursor-pointer">
-                  <GenderComponent
-                    urlto="/"
-                    url={
-                      pathname === "/"
-                        ? "/images/femaleA.svg"
-                        : "/images/female.svg"
-                    }
-                    text={"Female"}
-                    active={pathname === "/" ? true : false}
-                  />
-                </div>
-                <div className="relative cursor-pointer">
-                  <GenderComponent
-                    urlto="/ai-boyfriend"
-                    url={
-                      pathname === "/ai-boyfriend"
-                        ? "/images/male.svg"
-                        : "/images/maleIn.svg"
-                    }
-                    text={"Male"}
-                    active={pathname === "/ai-boyfriend" ? true : false}
-                  />
-                </div>
+                <ButtonBg click={() => {}} text={"Register"} />
+                <ButtonOutline click={() => {}} text={"Login"} />
               </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <ButtonBg click={() => {}} text={"Register"} />
-              <ButtonOutline click={() => {}} text={"Login"} />
-            </div>
-          </section>
-        </nav>
+            </section>
+          </nav>
+        </div>
       </header>
-      <main className="flex justify-between">
+      <main className="flex justify-between bg-nav-bg">
         <div>
           <aside
             className={`bg-nav-bg `}
             style={{
               height: "95vh",
               position: "fixed",
-
+              marginTop: "12vh",
               overflow: "hidden",
-              maxWidth: "300px",
-
+              width: "20vw",
               borderRight: "1px solid #363636",
             }}
           >
@@ -193,10 +196,15 @@ const MainLayout = ({
           </aside>
         </div>
 
-        <section>
+        <section
+          style={{
+            marginLeft: "260px",
+            marginTop: "12vh",
+            width: "85vw",
+          }}
+          className="bg-nav-bg"
+        >
           {children}
-
-          <footer></footer>
         </section>
       </main>
     </>

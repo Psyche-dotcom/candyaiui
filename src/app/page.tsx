@@ -1,10 +1,15 @@
 import MainLayoout from "@/components/MainLayout";
+import AiCharacter from "@/containers/landpage/AiCharacter";
+import HeroFemaleCardSection from "@/containers/landpage/herofemaleSection";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <MainLayoout>
-      <h1 className=" text-9xl">Hello</h1>
+      <div className="pt-12">
+        <HeroFemaleCardSection />
+        <AiCharacter />
+      </div>
     </MainLayoout>
   );
 }
