@@ -27,6 +27,7 @@ const config = {
         bColor: "#363636",
         dia: "#FCD58A",
         pin: "#D17CEF",
+        line: "#363636",
       },
       keyframes: {
         "accordion-down": {
